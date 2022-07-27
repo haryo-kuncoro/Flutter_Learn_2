@@ -13,5 +13,6 @@ induk project ada di <b>main.dart</b>
 - Pada tahap ini sudah koneksi ke database local menggunakan RestfulApi
 - Pada tahap ini merupakan lanjutan dari Flutter_learn_1 <a href="https://github.com/haryo-sk/Flutter_Learn_1"> disini </a>
 - Untuk pembuatan RestfulApi, silahkan lihat,copy dan pahami repository Codeigniter_learn_1 <a href="https://github.com/haryo-sk/Codeigniter_Learn_1"> disini </a>
+- Menggunakan `SharedPreferences` sebagai fasiliator penyimpanan local storage
 
 #Semoga_bermanfaat
