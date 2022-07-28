@@ -14,6 +14,6 @@ induk project ada di <b>main.dart</b>
 - Pada tahap ini merupakan lanjutan dari Flutter_learn_1 <a href="https://github.com/haryo-sk/Flutter_Learn_1"> disini </a>
 - Untuk pembuatan RestfulApi, silahkan lihat,copy dan pahami repository Codeigniter_learn_1 <a href="https://github.com/haryo-sk/Codeigniter_Learn_1"> disini </a>
 - Menggunakan `SharedPreferences` sebagai fasiliator penyimpanan local storage
-- Beberapa file di Flutter_Learn_1 sudah dihapus karena tidak digunakan lagi. Silahkan copy dan pahami seluruh file dart terbaru di Flutter_Learn_2
+- Beberapa file di `Flutter_Learn_1` sudah dihapus karena tidak digunakan lagi. Silahkan copy dan pahami seluruh file dart terbaru di `Flutter_Learn_2`
 
 #Semoga_bermanfaat
