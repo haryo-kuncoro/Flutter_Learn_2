@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:family/dashboard.dart';
 import 'package:family/modul.dart';
 import 'package:family/register.dart';
-import 'package:family/widgets/dialogs.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -104,6 +103,7 @@ class _MyLogin extends State<MyLoginApi> {
         );
 
         final output = jsonDecode(response.body);
+
         if (response.statusCode == 200) {
           if (output['logged_in'] == true) {
             _saveSession(
@@ -126,41 +126,8 @@ class _MyLogin extends State<MyLoginApi> {
             ),
             actions: [
               TextButton(
-                child: Text('OK'),
-                // onPressed: () => Navigator.of(context).pop(),
-                onPressed: () => Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return MyDashboard();
-                    },
-                  ),
-                ),
-              ),
-            ],
-          );
-
-          showDialog(context: context, builder: (context) => alert);
-          return;
-        } else if (response.statusCode == 401) {
-          AlertDialog alert = AlertDialog(
-            title: Text("Login ..."),
-            content: Container(
-              child: Text('Username dan password salah'),
-            ),
-            actions: [
-              TextButton(
-                child: Text('OK'),
-                // onPressed: () => Navigator.of(context).pop(),
-                onPressed: () => Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return MyDashboard();
-                    },
-                  ),
-                ),
-              ),
+                  child: Text('OK'),
+                  onPressed: () => Navigator.of(context).pop()),
             ],
           );
 
@@ -174,17 +141,8 @@ class _MyLogin extends State<MyLoginApi> {
             ),
             actions: [
               TextButton(
-                child: Text('OK'),
-                // onPressed: () => Navigator.of(context).pop(),
-                onPressed: () => Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return MyDashboard();
-                    },
-                  ),
-                ),
-              ),
+                  child: Text('OK'),
+                  onPressed: () => Navigator.of(context).pop()),
             ],
           );
 
@@ -194,23 +152,13 @@ class _MyLogin extends State<MyLoginApi> {
       }
     } catch (e) {
       AlertDialog alert = AlertDialog(
-        title: Text("Error"),
+        title: Text("Timeout ..."),
         content: Container(
-          child: Text('$e'),
+          child: Text('Server tidak terhubung'),
         ),
         actions: [
           TextButton(
-            child: Text('OK'),
-            // onPressed: () => Navigator.of(context).pop(),
-            onPressed: () => Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return MyDashboard();
-                },
-              ),
-            ),
-          ),
+              child: Text('OK'), onPressed: () => Navigator.of(context).pop()),
         ],
       );
 
@@ -221,89 +169,88 @@ class _MyLogin extends State<MyLoginApi> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: ListView(
-          children: <Widget>[
-            Container(
-              alignment: Alignment.center,
-              padding: const EdgeInsets.fromLTRB(10, 70, 10, 10),
-              // child: FlutterLogo(
-              //   size: 120.0,
-              // ),
-              child: Image.asset(
-                'assets/images/family.png',
-                width: 150.0,
-                height: 150.0,
-              ),
-            ),
-            Container(
-              constraints: const BoxConstraints(minWidth: 100, maxWidth: 200),
-              padding: const EdgeInsets.fromLTRB(30, 60, 30, 0),
-              child: TextFormField(
-                controller: nameController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Username',
-                  prefixIcon: Icon(Icons.person_outline),
+    return MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: ListView(
+            children: <Widget>[
+              Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.fromLTRB(10, 70, 10, 10),
+                child: Image.asset(
+                  'assets/images/family.png',
+                  width: 150.0,
+                  height: 150.0,
                 ),
               ),
-            ),
-            Container(
-              constraints: const BoxConstraints(minWidth: 100, maxWidth: 200),
-              padding: const EdgeInsets.fromLTRB(30, 10, 30, 0),
-              child: TextFormField(
-                obscureText: true,
-                controller: passwordController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Password',
-                  prefixIcon: Icon(Icons.lock_clock_outlined),
-                ),
-                onEditingComplete: () => submit(
-                    context, nameController.text, passwordController.text),
-              ),
-            ),
-            Container(
-              constraints: const BoxConstraints(minWidth: 50, maxWidth: 50),
-              height: 80,
-              padding: const EdgeInsets.fromLTRB(30, 30, 30, 0),
-              child: ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.lightBlueAccent,
-                ),
-                label: const Text(
-                  'Login',
-                  style: TextStyle(
-                    fontSize: 20,
+              Container(
+                constraints: const BoxConstraints(minWidth: 100, maxWidth: 200),
+                padding: const EdgeInsets.fromLTRB(30, 60, 30, 0),
+                child: TextFormField(
+                  controller: nameController,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Username',
+                    prefixIcon: Icon(Icons.person_outline),
                   ),
                 ),
-                icon: Icon(Icons.login_outlined),
-                onPressed: () => submit(
-                    context, nameController.text, passwordController.text),
               ),
-            ),
-            Row(
-              children: <Widget>[
-                const Text('Create family account '),
-                TextButton(
-                  child: const Text(
-                    'Click here',
-                    // style: TextStyle(fontSize: 20),
+              Container(
+                constraints: const BoxConstraints(minWidth: 100, maxWidth: 200),
+                padding: const EdgeInsets.fromLTRB(30, 10, 30, 0),
+                child: TextFormField(
+                  obscureText: true,
+                  controller: passwordController,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Password',
+                    prefixIcon: Icon(Icons.lock_clock_outlined),
                   ),
-                  onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return MyRegister();
-                      },
+                  onEditingComplete: () => submit(
+                      context, nameController.text, passwordController.text),
+                ),
+              ),
+              Container(
+                constraints: const BoxConstraints(minWidth: 50, maxWidth: 50),
+                height: 80,
+                padding: const EdgeInsets.fromLTRB(30, 30, 30, 10),
+                child: ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.lightBlueAccent,
+                  ),
+                  label: const Text(
+                    'Login',
+                    style: TextStyle(
+                      fontSize: 20,
                     ),
                   ),
-                )
-              ],
-              mainAxisAlignment: MainAxisAlignment.center,
-            ),
-          ],
+                  icon: Icon(Icons.login_outlined),
+                  onPressed: () => submit(
+                      context, nameController.text, passwordController.text),
+                ),
+              ),
+              Row(
+                children: <Widget>[
+                  const Text('Create family account '),
+                  TextButton(
+                    child: const Text(
+                      'Click here',
+                      // style: TextStyle(fontSize: 20),
+                    ),
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return MyRegister();
+                        },
+                      ),
+                    ),
+                  )
+                ],
+                mainAxisAlignment: MainAxisAlignment.center,
+              ),
+            ],
+          ),
         ),
       ),
     );
