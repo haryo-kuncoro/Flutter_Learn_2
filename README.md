@@ -16,4 +16,8 @@ induk project ada di <b>main.dart</b>
 - Menggunakan `SharedPreferences` sebagai fasiliator penyimpanan local storage
 - Beberapa file di `Flutter_Learn_1` sudah dihapus karena tidak digunakan lagi. Silahkan copy dan pahami seluruh file dart terbaru di `Flutter_Learn_2`
 
+### 29/07/2022
+- pembaruan dari sebelumnya
+- Penambahan `Carousel_slider` beserta indicator page nya, diletakkan pada <b>dashboard.dart</b>
+
 #Semoga_bermanfaat
