@@ -18,11 +18,12 @@ induk project ada di <b>main.dart</b>
 
 ### 29/07/2022
 - pembaruan dari sebelumnya
-- Penambahan `Carousel_slider` beserta indicator page nya, diletakkan pada <b>dashboard.dart</b>
+- Penambahan `CarouselSlider.Builder` beserta indicator page nya, diletakkan pada <b>dashboard.dart</b>
 
 ### 13/08/2022
 - pembaruan dari sebelumnya
-- Penambahan `GridView.Builder` sebagai slider card dibawah Carousel_slider. Gridview ini bisa dirubah horizontal ataupun vertikal, dengan merubah Axis nya.
+- Penambahan `GridView.Builder` sebagai slider card dibawah CarouselSlider. Gridview ini bisa dirubah horizontal ataupun vertikal, dengan merubah Axis nya.
 Untuk contoh code, bisa dilihat, class homepage di <b>dashboard.dart</b>
+- Untuk cara agar saat scroll ListView bisa seolah sembunyi dibawah appBar, tambahkan `extendBodyBehindAppBar: true,` dibawah `home: Scaffold`
 
 #Semoga_bermanfaat
