@@ -20,4 +20,9 @@ induk project ada di <b>main.dart</b>
 - pembaruan dari sebelumnya
 - Penambahan `Carousel_slider` beserta indicator page nya, diletakkan pada <b>dashboard.dart</b>
 
+### 13/08/2022
+- pembaruan dari sebelumnya
+- Penambahan `GridView.Builder` sebagai slider card dibawah Carousel_slider. Gridview ini bisa dirubah horizontal ataupun vertikal, dengan merubah Axis nya.
+Untuk contoh code, bisa dilihat, class homepage di <b>dashboard.dart</b>
+
 #Semoga_bermanfaat
